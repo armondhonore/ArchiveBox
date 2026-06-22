@@ -1,0 +1,18 @@
+application:
+  name: archivebox
+  pods:
+  - name: app
+    image: archivebox/archivebox:latest
+    path: /
+    servicePorts:
+    - 8000
+    vars:
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: changeme123
+      PUBLIC_INDEX: "True"
+      PUBLIC_SNAPSHOTS: "True"
+      PUBLIC_ADD_VIEW: "False"
+    volumes:
+    - name: archivebox-data
+      mountPath: /data
+      size: 10Gi
